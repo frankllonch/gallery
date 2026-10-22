@@ -1,6 +1,6 @@
 # Gallery — Frank Llonch
 
-Paintings, drawings and animations. A Next.js site, deployed on Vercel; the projects site lives in `frankllonch/personal_page`.
+Paintings, drawings and animations. A Next.js site, deployed on Vercel.
 
 ## Add work
 

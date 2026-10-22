@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-The gallery site (Next.js 16 App Router, React 19, Tailwind 4). The projects site is a separate repo, `frankllonch/personal_page`; the top bar links to it (`MAIN_SITE` in components/top-bar.tsx).
+The gallery site (Next.js 16 App Router, React 19, Tailwind 4). The projects site is a separate repo, `frankllonch/personal_page`, deliberately not linked from here. The CV is served from public/cv.pdf.
 
 - `content/artwork.json` + `public/artwork/` — the only things to touch to add work.
 - `lib/artwork.ts` — server-only loader: measures images (sharp) and MP4/MOV (tkhd), prefers `<file>.opt.webp` twins written by `scripts/build-artwork.mjs` (prebuild; twins are gitignored).

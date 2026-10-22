@@ -1,18 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useRef, useState } from "react";
 import ScrambledText from "@/components/wierdtext";
 
 /**
- * The signature, the link back to the main site and the socials, fixed over
- * the page. No bar behind them; they slide away on scroll down and come back
- * on scroll up. The only hover effect is the text scramble.
+ * The signature and the socials, fixed over the page. No bar behind them;
+ * they slide away on scroll down and come back on scroll up. The only hover
+ * effect is the text scramble. (The projects site is separate and is
+ * deliberately not linked from here.)
  */
-
-/** The main site, where the projects live. Change here if the domain changes. */
-export const MAIN_SITE = "https://frankllonch.vercel.app";
 
 const TILE_CLASS = "h-8 w-8 sm:h-9 sm:w-9 shrink-0 flex items-center justify-center";
 const TILE_HOVER = { scale: 1.08, y: -2 };
@@ -61,23 +60,14 @@ export default function TopBar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-12 sm:h-14 flex flex-row items-center justify-between gap-4 [&>*]:pointer-events-auto">
         <div className="flex items-center gap-4 sm:gap-6">
-          {/* SIGNATURE — the main site */}
-          <a href={MAIN_SITE} aria-label="Frank Llonch — main site" className="shrink-0">
+          {/* SIGNATURE — back to the top of the gallery */}
+          <Link href="/" aria-label="Gallery home" className="shrink-0">
             <div className={`${INK} font-black tracking-tight`}>
               <ScrambledText className="ink-inherit text-2xl sm:text-3xl" radius={30} duration={0.4} speed={0.5} scrambleChars="*">
                 frank
               </ScrambledText>
             </div>
-          </a>
-
-          {/* PROJECTS — the main site */}
-          <a href={MAIN_SITE} className="shrink-0">
-            <div className={`${INK} font-bold text-xs sm:text-sm tracking-wide`}>
-              <ScrambledText className="ink-inherit font-inherit" radius={20} duration={0.4} speed={0.5} scrambleChars="*">
-                projects
-              </ScrambledText>
-            </div>
-          </a>
+          </Link>
         </div>
 
         {/* SOCIALS + CV */}
@@ -88,7 +78,7 @@ export default function TopBar() {
               <Image src={s.img} alt={s.alt} width={18} height={18} className={s.invert ? "invert" : undefined} />
             </motion.a>
           ))}
-          <motion.a href={`${MAIN_SITE}/cv.pdf`} target="_blank" rel="noopener noreferrer" whileHover={TILE_HOVER} transition={TILE_SPRING} aria-label="Curriculum Vitae (PDF)" className={TILE_CLASS}>
+          <motion.a href="/cv.pdf" target="_blank" rel="noopener noreferrer" whileHover={TILE_HOVER} transition={TILE_SPRING} aria-label="Curriculum Vitae (PDF)" className={TILE_CLASS}>
             <div className={`${INK} font-bold text-xs sm:text-sm tracking-wide`}>
               <ScrambledText className="ink-inherit font-inherit" radius={20} duration={0.4} speed={0.5} scrambleChars="*">
                 CV
